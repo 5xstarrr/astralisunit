@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Join • Astralis</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="join">
+  <div class="bg">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="noise"></div>
+  </div>
+
+  <header class="topbar glass">
+    <div class="brand">
+      <div class="logo">A</div>
+      <div><div class="name">Astralis</div><div class="tag" id="tagline">Creative Artistry</div></div>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a class="active pill" href="join.html">Join</a>
+      <a href="contact.html">Contact</a>
+      <button id="themeBtn" class="iconBtn">🌓</button>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="card glass">
+      <h2>Join Astralis</h2>
+      <p class="sub">Step 1: Join the Discord. Step 2: Apply.</p>
+
+      <div class="ctaRow">
+        <a class="btn primary" id="joinDiscord" href="#" target="_blank" rel="noreferrer">Join Discord</a>
+      </div>
+
+      <h2 style="margin-top:18px;">Application Form</h2>
+      <p class="sub">
+        Choose how you want applications handled:
+        <b>Google Form</b> (easiest) or <b>Formspree</b> (clean).
+      </p>
+
+      <div class="list">
+        <div class="row">
+          <div>
+            <div style="font-weight:900;">Google Form</div>
+            <div class="meta">You make it, I embed it here.</div>
+          </div>
+          <div style="font-weight:900;">Recommended</div>
+        </div>
+
+        <div class="row">
+          <div>
+            <div style="font-weight:900;">Formspree</div>
+            <div class="meta">Submits to your email. No Google.</div>
+          </div>
+          <div class="meta">Optional</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:18px;">Discord Widget</h2>
+      <div id="discordWidget"></div>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="year"></span> Astralis Unit</footer>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,113 +1,84 @@
-const $ = (s) => document.querySelector(s);
+window.ASTRALIS = {
+  name: "Astralis",
+  tagline: "Creative Artistry",
+  discordInvite: "https://discord.gg/FzkFg2k2jz",
 
-function applyThemeOnLoad(){
-  const saved = localStorage.getItem("astralis_theme");
-  if(saved){
-    document.documentElement.setAttribute("data-theme", saved);
-  } else {
-    const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-    document.documentElement.setAttribute("data-theme", prefersLight ? "light" : "dark");
-  }
-}
+  // Cards in "Projects / Latest Drops"
+  projects: [
+    { title: "IRL STYLE", by: "5STAR", url: "https://youtube.com", colorA: "#ff4fd8", colorB: "#b000ff" },
+    { title: "STIFF VIBE", by: "KITE", url: "https://youtube.com", colorA: "#00e5ff", colorB: "#00ff88" },
+    { title: "FLOW", by: "ASTRALIS", url: "https://youtube.com", colorA: "#ffe600", colorB: "#8cff00" },
+  ],
 
-function hookThemeToggle(){
-  const btn = $("#themeBtn");
-  if(!btn) return;
-  btn.addEventListener("click", () => {
-    const cur = document.documentElement.getAttribute("data-theme") || "dark";
-    const next = cur === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("astralis_theme", next);
-  });
-}
+  // Roster
+  roster: [
+    { name: "5star", role: "Owner", software: "After Effects", style: "All-round", focus: "Flow", pfp: "" },
+    { name: "Kite", role: "Co-Owner", software: "After Effects", style: "Anime / CC", focus: "Impact", pfp: "" },
+    { name: "Exec", role: "Admin", software: "AE / PR", style: "Clean", focus: "Story", pfp: "" },
+  ],
 
-function setCommonBits(){
-  // tagline
-  if(window.ASTRALIS){
-    const t = $("#tagline");
-    if(t) t.textContent = ASTRALIS.tagline || "Creative Artistry";
-  }
-  // year
-  const y = $("#year");
-  if(y) y.textContent = new Date().getFullYear();
-}
+  // Standards
+  standards: {
+    headline: "The bar is set. Choose your tier to view examples.",
+    tiers: [
+      {
+        key: "normal",
+        label: "Normal Tier",
+        bullets: [
+          "Consistent flow (no random cuts)",
+          "Clean timing + audio alignment",
+          "No generic presets spam",
+          "Good CC + readable visuals",
+        ],
+      },
+      {
+        key: "top",
+        label: "Top Tier",
+        bullets: [
+          "Strong creative direction (concept)",
+          "Original composition + transitions",
+          "Intentional camera + motion design",
+          "Polished sound design + impact hits",
+        ],
+      },
+    ],
+  },
 
-function renderHome(){
-  if(!window.ASTRALIS) return;
+  // Partners
+  partners: [
+    {
+      name: "Rin-Reliance",
+      tags: ["Editing", "MEPs", "Competitions"],
+      desc: "Active community for editors, logo makers, and boosters. Home to high-tier MEPs and regular comps.",
+      btnA: { label: "Watch Trailer", url: "https://youtube.com" },
+      btnB: { label: "Join Server", url: "https://discord.gg" },
+    },
+    {
+      name: "Sirius",
+      tags: ["VFX/GFX", "Community", "Resources"],
+      desc: "Editing resources, feedback, collabs. Recruiting talented artists.",
+      btnA: { label: "Watch Trailer", url: "https://youtube.com" },
+      btnB: { label: "Join Sirius", url: "https://discord.gg" },
+    },
+  ],
 
-  const eds = ASTRALIS.editors || [];
-  const comps = ASTRALIS.competitions || [];
-
-  $("#memberCount") && ($("#memberCount").textContent = eds.length);
-  $("#compCount") && ($("#compCount").textContent = comps.length);
-
-  // Gallery
-  const gal = $("#gallery");
-  if(gal){
-    gal.innerHTML = "";
-    (ASTRALIS.gallery || []).slice(0,6).forEach((g)=>{
-      const item = document.createElement("div");
-      item.className = "gItem";
-
-      if(g.thumb){
-        item.style.backgroundImage = `url('${g.thumb}')`;
-        item.style.backgroundSize = "cover";
-        item.style.backgroundPosition = "center";
-      }
-
-      item.innerHTML = `<div class="cap">${g.title}</div>`;
-      item.addEventListener("click", ()=> window.open(g.url, "_blank"));
-      gal.appendChild(item);
-    });
-  }
-
-  // Discord button
-  const joinBtn = $("#joinDiscord");
-  if(joinBtn){
-    joinBtn.href = ASTRALIS.discord?.invite || "https://discord.gg/FzkFg2k2jz";
-  }
-}
-
-function renderJoin(){
-  if(!window.ASTRALIS) return;
-  const joinBtn = $("#joinDiscord");
-  if(joinBtn) joinBtn.href = ASTRALIS.discord?.invite || "https://discord.gg/FzkFg2k2jz";
-
-  const widgetWrap = $("#discordWidget");
-  if(widgetWrap){
-    if(ASTRALIS.discord?.widgetIframe){
-      widgetWrap.innerHTML = ASTRALIS.discord.widgetIframe;
-    } else {
-      widgetWrap.innerHTML = `<div class="row">
-        <div>
-          <div style="font-weight:900;">Discord widget not enabled yet</div>
-          <div class="meta">In Discord: Server Settings → Widget → Enable Server Widget. Then send me the Widget ID.</div>
-        </div>
-      </div>`;
+  // Recruiting requirements + form
+  recruiting: {
+    requirementsLeft: [
+      { k: "Software", v: "After Effects / Premiere" },
+      { k: "Experience", v: "1+ Years" },
+      { k: "Activity", v: "1 edit / month minimum" },
+      { k: "Discord", v: "Mic preferred" },
+    ],
+    form: {
+      // Choose later:
+      // type: "google" -> embedUrl
+      // type: "formspree" -> actionUrl
+      type: "basic", // basic = shows a static form (we can wire it to Google/Formspree next)
+      googleEmbedUrl: "",
+      formspreeActionUrl: ""
     }
   }
-}
+};
 
-function renderContact(){
-  if(!window.ASTRALIS) return;
-  const list = $("#contactList");
-  if(list){
-    list.innerHTML = "";
-    (ASTRALIS.contact?.discordUsers || []).forEach(u=>{
-      const row = document.createElement("div");
-      row.className = "row";
-      row.innerHTML = `<div style="font-weight:900;">${u}</div><div class="meta">Discord</div>`;
-      list.appendChild(row);
-    });
-  }
-}
-
-applyThemeOnLoad();
-hookThemeToggle();
-setCommonBits();
-
-// page-specific
-const page = document.body.getAttribute("data-page");
-if(page === "home") renderHome();
-if(page === "join") renderJoin();
 if(page === "contact") renderContact();

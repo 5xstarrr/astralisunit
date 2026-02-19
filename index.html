@@ -6,7 +6,7 @@
   <title>Astralis Unit</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
+<body data-page="home">
   <div class="bg">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
@@ -19,18 +19,15 @@
       <div class="logo">A</div>
       <div>
         <div class="name">Astralis</div>
-        <div class="tag">Frosted edits. Clean wins.</div>
+        <div class="tag" id="tagline">Creative Artistry</div>
       </div>
     </div>
 
     <nav class="nav">
       <a class="active" href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="editors.html">Editors</a>
-      <a href="competitions.html">Competitions</a>
-      <a href="stats.html">Stats</a>
+      <a href="join.html" class="pill">Join</a>
       <a href="contact.html">Contact</a>
-      <a class="pill" href="join.html">Join</a>
       <button id="themeBtn" class="iconBtn" title="Toggle theme" aria-label="Toggle theme">🌓</button>
     </nav>
   </header>
@@ -39,39 +36,54 @@
     <section class="hero glass">
       <h1>Welcome to <span class="glow">Astralis Unit</span></h1>
       <p class="sub">
-        An editing unit built for quality, consistency, and comps. iOS glass vibe, real talent, real pressure.
+        A creative editing collective built around consistency, style, and comp-ready quality.
       </p>
+
       <div class="ctaRow">
-        <a class="btn primary" href="join.html">Join the Discord</a>
-        <a class="btn" href="competitions.html">See Competitions</a>
+        <a class="btn primary" id="joinDiscord" href="#" target="_blank" rel="noreferrer">Join Discord</a>
+        <a class="btn" href="about.html">Learn more</a>
       </div>
+
       <div class="statsRow">
         <div class="chip glass2"><span id="memberCount">—</span><small>Editors</small></div>
         <div class="chip glass2"><span id="compCount">—</span><small>Competitions</small></div>
-        <div class="chip glass2"><span id="winCount">—</span><small>Wins</small></div>
       </div>
     </section>
 
     <section class="grid">
       <section class="card glass">
-        <h2>Leaderboard</h2>
-        <div id="leaderboard" class="list"></div>
-        <a class="link" href="stats.html">View full stats →</a>
-      </section>
-
-      <section class="card glass">
         <h2>Gallery</h2>
         <div id="gallery" class="gallery"></div>
         <div class="hint">Hover for glow. Click opens link.</div>
       </section>
+
+      <section class="card glass">
+        <h2>Quick Links</h2>
+        <div class="list">
+          <a class="row" href="join.html">
+            <div style="font-weight:900;">Join Astralis</div>
+            <div class="meta">Discord + application</div>
+          </a>
+
+          <a class="row" href="about.html">
+            <div style="font-weight:900;">About</div>
+            <div class="meta">What we do</div>
+          </a>
+
+          <a class="row" href="contact.html">
+            <div style="font-weight:900;">Contact</div>
+            <div class="meta">Reach the owners</div>
+          </a>
+        </div>
+      </section>
     </section>
   </main>
 
-  <footer class="footer">
-    <span>© <span id="year"></span> Astralis Unit</span>
-  </footer>
+  <footer class="footer">© <span id="year"></span> Astralis Unit</footer>
 
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>
+</html>
+
 </html>

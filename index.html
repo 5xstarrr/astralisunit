@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Astralis Unit</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="noise"></div>
+  </div>
+
+  <header class="topbar glass">
+    <div class="brand">
+      <div class="logo">A</div>
+      <div>
+        <div class="name">Astralis</div>
+        <div class="tag">Frosted edits. Clean wins.</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="editors.html">Editors</a>
+      <a href="competitions.html">Competitions</a>
+      <a href="stats.html">Stats</a>
+      <a href="contact.html">Contact</a>
+      <a class="pill" href="join.html">Join</a>
+      <button id="themeBtn" class="iconBtn" title="Toggle theme" aria-label="Toggle theme">🌓</button>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero glass">
+      <h1>Welcome to <span class="glow">Astralis Unit</span></h1>
+      <p class="sub">
+        An editing unit built for quality, consistency, and comps. iOS glass vibe, real talent, real pressure.
+      </p>
+      <div class="ctaRow">
+        <a class="btn primary" href="join.html">Join the Discord</a>
+        <a class="btn" href="competitions.html">See Competitions</a>
+      </div>
+      <div class="statsRow">
+        <div class="chip glass2"><span id="memberCount">—</span><small>Editors</small></div>
+        <div class="chip glass2"><span id="compCount">—</span><small>Competitions</small></div>
+        <div class="chip glass2"><span id="winCount">—</span><small>Wins</small></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <section class="card glass">
+        <h2>Leaderboard</h2>
+        <div id="leaderboard" class="list"></div>
+        <a class="link" href="stats.html">View full stats →</a>
+      </section>
+
+      <section class="card glass">
+        <h2>Gallery</h2>
+        <div id="gallery" class="gallery"></div>
+        <div class="hint">Hover for glow. Click opens link.</div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Astralis Unit</span>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
